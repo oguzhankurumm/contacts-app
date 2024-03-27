@@ -3,7 +3,8 @@ export type ContactType = {
   email?: string;
   firstName: string;
   lastName: string;
-  phoneCode: number;
-  phoneNumber: number;
+  country: string;
+  phoneCode: string;
+  phoneNumber: string;
   avatar?: string;
 };

@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 
 import useContactsStore from "_store/contactsStore";
 import Scenes from "_navigations/Scenes";
@@ -7,14 +7,22 @@ import NavigationServices from "_navigations/NavigationServices";
 import { ContactType } from "_types/index";
 
 const useContacts = () => {
-  const { contacts, removeContact } = useContactsStore();
+  const [searchQuery, setSearchQuery] = useState<string>("");
+
+  const { contacts, removeContact, setSelectedContact, setMode } =
+    useContactsStore();
 
   const onItemPress = useCallback((id: string) => {
-    NavigationServices.navigate(Scenes.addEditContact, { id });
+    const contact = contacts.find((c) => c.id === id);
+    setSelectedContact(contact as ContactType);
+    setMode("view");
+    NavigationServices.navigate(Scenes.addEditContact);
   }, []);
 
   const handleAdd = useCallback(() => {
     NavigationServices.navigate(Scenes.addEditContact);
+    setSelectedContact(null);
+    setMode("add");
   }, []);
 
   const handleDelete = useCallback(
@@ -22,7 +30,6 @@ const useContacts = () => {
       Alert.alert("Delete", "Are you sure you want to delete this contact?", [
         {
           text: "Cancel",
-          onPress: () => console.log("Cancel Pressed"),
           style: "cancel",
         },
         {
@@ -36,7 +43,10 @@ const useContacts = () => {
   );
 
   const handleEdit = useCallback((id: string) => {
-    NavigationServices.navigate(Scenes.addEditContact, { id });
+    const contact = contacts.find((c) => c.id === id);
+    setSelectedContact(contact as ContactType);
+    setMode("edit");
+    NavigationServices.navigate(Scenes.addEditContact);
   }, []);
 
   const formattedContacts = useCallback((contacts: ContactType[]) => {
@@ -47,12 +57,23 @@ const useContacts = () => {
     }));
   }, []);
 
+  const filteredContacts = contacts.filter(
+    (contact) => {
+      return (
+        contact.firstName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        contact.lastName.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    },
+    [searchQuery]
+  );
+
   return {
+    setSearchQuery,
     onItemPress,
     handleAdd,
     handleDelete,
     handleEdit,
-    formattedContacts: formattedContacts(contacts),
+    formattedContacts: formattedContacts(filteredContacts),
   };
 };
 

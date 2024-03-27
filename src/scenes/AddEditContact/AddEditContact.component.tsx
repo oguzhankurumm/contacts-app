@@ -1,23 +1,30 @@
-import { View } from "react-native";
+import { ImageSourcePropType, View } from "react-native";
 import styles from "./AddEditContact.style";
 import { useMemo } from "react";
 import {
   AppWrapper,
+  CountryPicker,
   CustomButton,
   CustomImage,
+  CustomText,
   KeyboardAvoiding,
   LabeledTextInput,
 } from "_components";
 import { useAddEditContact } from "./hooks/useAddEditContact.hook";
 import { Formik } from "formik";
 import { ContactType } from "_types/index";
+import useContactsStore from "_store/contactsStore";
 
 const AddEditContact = () => {
+  const { mode } = useContactsStore();
+
   const {
     headerContainer,
     imageStyle,
     contentContainer,
     inputContainer,
+    phoneCodeContainer,
+    phoneCodeText,
     buttonContainer,
   } = useMemo(() => styles(), []);
 
@@ -26,7 +33,7 @@ const AddEditContact = () => {
   return (
     <AppWrapper>
       <Formik
-        initialValues={initialValues}
+        initialValues={initialValues as ContactType}
         validationSchema={validationSchema}
         onSubmit={(data: unknown) => handleSave(data as ContactType)}
       >
@@ -40,7 +47,10 @@ const AddEditContact = () => {
         }) => (
           <KeyboardAvoiding>
             <View style={headerContainer}>
-              <CustomImage overrideStyle={imageStyle} />
+              <CustomImage
+                source={values.avatar as ImageSourcePropType}
+                overrideStyle={imageStyle}
+              />
             </View>
             <View style={contentContainer}>
               <LabeledTextInput
@@ -53,6 +63,7 @@ const AddEditContact = () => {
                 onBlur={handleBlur("firstName")}
                 error={touched.firstName && (errors.firstName as string)}
                 overrideContainerStyle={inputContainer}
+                disabled={mode === "view"}
               />
               <LabeledTextInput
                 title="Last Name"
@@ -64,6 +75,7 @@ const AddEditContact = () => {
                 onBlur={handleBlur("lastName")}
                 error={touched.lastName && (errors.lastName as string)}
                 overrideContainerStyle={inputContainer}
+                disabled={mode === "view"}
               />
               <LabeledTextInput
                 title="Email"
@@ -75,34 +87,46 @@ const AddEditContact = () => {
                 onBlur={handleBlur("email")}
                 error={touched.email && (errors.email as string)}
                 overrideContainerStyle={inputContainer}
+                disabled={mode === "view"}
               />
-              <LabeledTextInput
-                title="Phone Code"
-                keyboardType="number-pad"
-                inputValue={values.phoneCode}
-                maxLength={2}
-                placeholder="Phone Code"
-                handleChange={handleChange("phoneCode")}
-                onBlur={handleBlur("phoneCode")}
-                error={touched.phoneCode && (errors.phoneCode as string)}
+              <CountryPicker
+                title="Country"
+                country={values.country}
+                error={touched.country && (errors.country as string)}
+                onSelect={(country, code) => {
+                  handleChange("country")(country);
+                  handleChange("phoneCode")(code);
+                }}
                 overrideContainerStyle={inputContainer}
+                disabled={mode === "view"}
               />
               <LabeledTextInput
                 title="Phone Number"
                 keyboardType="number-pad"
                 inputValue={values.phoneNumber}
-                maxLength={10}
+                maxLength={13}
                 placeholder="Phone Number"
                 handleChange={handleChange("phoneNumber")}
                 onBlur={handleBlur("phoneNumber")}
                 error={touched.phoneNumber && (errors.phoneNumber as string)}
                 overrideContainerStyle={inputContainer}
+                leftChild={
+                  <View style={phoneCodeContainer}>
+                    <CustomText
+                      text={`+${values.phoneCode}`}
+                      textFontStyle="bodyMediumSemibold"
+                      overrideStyle={phoneCodeText}
+                    />
+                  </View>
+                }
+                disabled={mode === "view"}
               />
             </View>
             <CustomButton
               title="Save"
               onPress={handleSubmit}
               overrideStyle={buttonContainer}
+              disabled={mode === "view"}
             />
           </KeyboardAvoiding>
         )}

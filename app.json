@@ -5,6 +5,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./src/assets/tempExpoIcons/icon.png",
+    "scheme": "contactsapp",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./src/assets/tempExpoIcons/splash.png",
@@ -13,13 +14,15 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.contactsapp"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./src/assets/tempExpoIcons/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.contactsapp"
     },
     "web": {
       "favicon": "./src/assets/tempExpoIcons/favicon.png"

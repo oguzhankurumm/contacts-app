@@ -21,6 +21,7 @@ const Contacts = () => {
     handleDelete,
     handleEdit,
     onItemPress,
+    setSearchQuery,
   } = useContacts();
 
   const {
@@ -36,7 +37,10 @@ const Contacts = () => {
   return (
     <AppWrapper>
       <View style={headerContainer}>
-        <SearchWithIcon placeholder="Search people..." />
+        <SearchWithIcon
+          placeholder="Search people..."
+          searchHandler={setSearchQuery}
+        />
       </View>
       <AlphabetList
         data={formattedContacts}

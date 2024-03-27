@@ -34,9 +34,6 @@ const AppNavigator = () => {
       <MainStackNavigator.Screen
         name={Scenes.addEditContact}
         component={AddEditContact}
-        options={{
-          headerTitle: "Add Contact",
-        }}
       />
     </MainStackNavigator.Navigator>
   );

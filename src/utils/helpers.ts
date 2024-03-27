@@ -5,4 +5,14 @@ const generateRandomUid = () => {
   return Math.random().toString(36).substring(7);
 };
 
-export { getRandomAvatar, generateRandomUid };
+const isNullOrEmpty = (text: any) => {
+  if (text === null || text === undefined) {
+    return true;
+  }
+  const textString = text?.toString();
+  return (
+    !textString || textString?.toString()?.replace(/\s/g, "")?.length === 0
+  );
+};
+
+export { getRandomAvatar, generateRandomUid, isNullOrEmpty };

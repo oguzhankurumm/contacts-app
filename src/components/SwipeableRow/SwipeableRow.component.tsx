@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useRef } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { Animated, View } from "react-native";
 
@@ -17,6 +17,8 @@ const SwipeableRow: React.FC<SwipeableRowProps> = ({
   onEdit,
   overrideContainerStyle,
 }) => {
+  const swipeableRef = useRef<Swipeable | null>(null);
+
   const { container, actionItem } = useMemo(() => styles(), []);
 
   const renderRightAction = (
@@ -34,7 +36,12 @@ const SwipeableRow: React.FC<SwipeableRowProps> = ({
       <Animated.View style={{ flex: 1, transform: [{ translateX: trans }] }}>
         <RectButton
           style={[actionItem, { backgroundColor: color }]}
-          onPress={onPress}
+          onPress={() => {
+            onPress?.();
+            if (swipeableRef.current) {
+              swipeableRef.current.close();
+            }
+          }}
         >
           <Ionicons
             name={iconName}
@@ -74,6 +81,7 @@ const SwipeableRow: React.FC<SwipeableRowProps> = ({
 
   return (
     <Swipeable
+      ref={swipeableRef}
       containerStyle={overrideContainerStyle}
       friction={2}
       enableTrackpadTwoFingerGesture

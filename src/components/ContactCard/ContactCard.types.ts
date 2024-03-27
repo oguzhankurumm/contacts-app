@@ -4,8 +4,8 @@ export type ContactCardProps = {
   avatar: ImageSourcePropType;
   firstName: string;
   lastName: string;
-  phoneCode: number;
-  phoneNumber: number;
+  phoneCode: string;
+  phoneNumber: string;
   onItemPress?: () => void;
   onEdit?: () => void;
   onDelete?: () => void;

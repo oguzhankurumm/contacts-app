@@ -11,7 +11,8 @@
       "_scenes/*": ["./src/scenes/*"],
       "_store/*": ["./src/store/*"],
       "_styles/*": ["./src/styles/*"],
-      "_types/*": ["./src/types/*"]
+      "_types/*": ["./src/types/*"],
+      "_utils/*": ["./src/utils/*"]
     }
   }
 }

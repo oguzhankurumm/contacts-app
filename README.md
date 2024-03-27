@@ -2,7 +2,19 @@
 
 This is a React Native Contacts app.
 
-Additional features:
+## Screenshots
+
+<div style="display: flex; flex-direction: 'row';">
+<img src="./screenshots/1.png" width=30%>
+<img src="./screenshots/2.png" width=30%>
+<img src="./screenshots/3.png" width=30%>
+</div>
+
+### UI Design Template:
+
+- [Chatme - Messenger Chat App UI Kit](https://ui8.net/toko-design-206804/products/chatme---messenger-chat-app-ui-kit)
+
+### Additional Features
 
 - [React Navigation](https://reactnavigation.org/docs/getting-started) navigation and routes
 - [Reanimated](https://docs.swmansion.com/react-native-reanimated/) 3 for animations
@@ -11,12 +23,6 @@ Additional features:
 - [SectionAlphabetList](https://github.com/Kieran-McIntyre/react-native-section-alphabet-list) for listing contacts
 - [Formik](https://formik.org/docs/overview) for form management
 - [Yup](https://github.com/jquense/yup) for form validation
-
-## Screenshots
-
-<div style="display: flex; flex-direction: 'row';">
-<img src="./screenshots/1.png" width=20%>
-</div>
 
 ### Hooks
 
