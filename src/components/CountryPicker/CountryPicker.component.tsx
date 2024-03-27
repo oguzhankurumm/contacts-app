@@ -53,9 +53,6 @@ const CountryPicker: React.FC<CountryPickerPropsTypes> = ({
         labelField="country"
         placeholder="Select Country"
         onChange={({ code, country }) => onSelect(country, code)}
-        search
-        searchField="country"
-        searchPlaceholder="Search country..."
         inputSearchStyle={searchInputStyle}
       />
       {((!!error && typeof error === "string") ||
