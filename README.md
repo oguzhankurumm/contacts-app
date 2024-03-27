@@ -8,9 +8,15 @@ Additional features:
 - [Reanimated](https://docs.swmansion.com/react-native-reanimated/) 3 for animations
 - [Gesture Handler](https://docs.swmansion.com/react-native-gesture-handler/) for gestures
 - [Zustand](https://zustand-demo.pmnd.rs/) and [MMKV](https://github.com/mrousavy/react-native-mmkv) for state management
-- [SectionAlphabetList](react-native-section-alphabet-list) for listing contacts
+- [SectionAlphabetList](https://github.com/Kieran-McIntyre/react-native-section-alphabet-list) for listing contacts
 - [Formik](https://formik.org/docs/overview) for form management
 - [Yup](https://github.com/jquense/yup) for form validation
+
+## Screenshots
+
+<div style="display: flex; flex-direction: 'row';">
+<img src="./screenshots/1.png" width=20%>
+</div>
 
 ### Hooks
 
@@ -61,11 +67,5 @@ yarn install
 ```
 yarn run start
 ```
-
-## Screenshots
-
-<div style="display: flex; flex-direction: 'row';">
-<img src="./screenshots/1.png" width=20%>
-</div>
 
 </div>
