@@ -10,11 +10,6 @@ This is a React Native Contacts app.
 <img src="./screenshots/3.png" width=30%>
 </div>
 
-## Demo
-
-<div style="display: flex; flex-direction: 'row';">
-<img src="./screenshots/demo.gif" width=50%>
-
 ### UI Design Template:
 
 - [Chatme - Messenger Chat App UI Kit](https://ui8.net/toko-design-206804/products/chatme---messenger-chat-app-ui-kit)
