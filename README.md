@@ -35,7 +35,6 @@ This directory holds a reference to all the re-usable hooks
 This directory holds a reference to all the re-usable utils, helpers & constants
 
 - helpers
-- storageHandler
 
 ## Requirements
 
