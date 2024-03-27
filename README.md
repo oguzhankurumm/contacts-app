@@ -10,6 +10,11 @@ This is a React Native Contacts app.
 <img src="./screenshots/3.png" width=30%>
 </div>
 
+## Demo
+
+<div style="display: flex; flex-direction: 'row';">
+<img src="./screenshots/demo.gif" width=50%>
+
 ### UI Design Template:
 
 - [Chatme - Messenger Chat App UI Kit](https://ui8.net/toko-design-206804/products/chatme---messenger-chat-app-ui-kit)
@@ -17,7 +22,7 @@ This is a React Native Contacts app.
 ### Additional Features
 
 - [React Navigation](https://reactnavigation.org/docs/getting-started) navigation and routes
-- [Reanimated](https://docs.swmansion.com/react-native-reanimated/) 3 for animations
+- [Reanimated 3](https://docs.swmansion.com/react-native-reanimated/) for animations
 - [Gesture Handler](https://docs.swmansion.com/react-native-gesture-handler/) for gestures
 - [Zustand](https://zustand-demo.pmnd.rs/) for state management
 - [AsyncStorage](https://github.com/react-native-async-storage/async-storage) for local storage
