@@ -19,7 +19,8 @@ This is a React Native Contacts app.
 - [React Navigation](https://reactnavigation.org/docs/getting-started) navigation and routes
 - [Reanimated](https://docs.swmansion.com/react-native-reanimated/) 3 for animations
 - [Gesture Handler](https://docs.swmansion.com/react-native-gesture-handler/) for gestures
-- [Zustand](https://zustand-demo.pmnd.rs/) and [MMKV](https://github.com/mrousavy/react-native-mmkv) for state management
+- [Zustand](https://zustand-demo.pmnd.rs/) for state management
+- [AsyncStorage](https://github.com/react-native-async-storage/async-storage) for local storage
 - [SectionAlphabetList](https://github.com/Kieran-McIntyre/react-native-section-alphabet-list) for listing contacts
 - [Formik](https://formik.org/docs/overview) for form management
 - [Yup](https://github.com/jquense/yup) for form validation
